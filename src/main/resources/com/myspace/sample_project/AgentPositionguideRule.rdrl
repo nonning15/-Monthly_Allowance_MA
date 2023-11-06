@@ -1,0 +1,12 @@
+package com.myspace.sample_project;
+
+import java.lang.Number;
+
+rule "AgentPositionguideRule"
+	dialect "mvel"
+	ruleflow-group "agentPosition"
+	when
+		agent : AgentObj( agentPosition != "FP" )
+	then
+		agent.setErrorMsg( "Agent Position isn't FP" );
+end

@@ -1,0 +1,12 @@
+package com.myspace.sample_project;
+
+import java.lang.Number;
+
+rule "productionisServicingRule"
+	dialect "mvel"
+	ruleflow-group "productionAndSeriving"
+	when
+		agent : AgentObj( productionAgent != agent.servicingAgent )
+	then
+		agent.setErrorMsg( "Production Agent Doesen't Equal Servicing Agent" );
+end

@@ -1,0 +1,12 @@
+package com.myspace.sample_project;
+
+import java.lang.Number;
+
+rule "agentNotRejoinRule"
+	dialect "mvel"
+	ruleflow-group "agentNotRejoin"
+	when
+		agent : AgentObj( agentRejoin == true )
+	then
+		agent.setErrorMsg( "Agent is Re-join" );
+end

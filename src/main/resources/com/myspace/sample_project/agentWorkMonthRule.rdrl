@@ -1,0 +1,12 @@
+package com.myspace.sample_project;
+
+import java.lang.Number;
+
+rule "agentWorkMonthRule"
+	dialect "mvel"
+	ruleflow-group "agentWorkMonth"
+	when
+		agent : AgentObj( workMonth > 12 )
+	then
+		agent.setErrorMsg( "Work Month Dosen't Between 0 And 12" );
+end
